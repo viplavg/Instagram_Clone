@@ -1,18 +1,181 @@
+/* Reset everything to zero/default settings */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* give apple system font family throughout the body  */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+
+/* css for the whole messages section of message page  */
 .messages_section {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+    align-items: center;
 }
 
+/* css for overlay modal  */
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.65);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new_message_container {
+    width: 400px;
+    height: 480px;
+    background-color: rgba(256,256,256,1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.new_message {
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid rgba(219,219,219,1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.new_message > i{
+    margin-top: 2px;
+    color: rgb(38,38,38);
+    cursor: pointer;
+    font-size: 24px;
+}
+.new_message > p {
+    color: rgb(38,38,38);
+    font-size: 16px;
+    font-weight: 600;
+}
+.new_message > button {
+    opacity: 0.3;
+    border: none;
+    color: rgb(0,149,246);
+    font-size: 14px;
+    font-weight: 600;
+}
+.send_message_to {
+    width: 100%;
+    min-height: 55px;
+    max-height: 40%;
+    border-bottom: 1px solid rgba(219,219,219,1);
+    display: flex;
+    align-items: center;
+    padding: 0px 15px;
+    column-gap: 30px;
+    overflow-y: scroll;
+}
+.send_message_to > p {
+    color: rgb(38,38,38);
+    font-size: 16px;
+    font-weight: 600;
+}
+.send_message_to > .set_users_area > input {
+    font-size: 15px;
+    font-weight: 100;
+    color: rgb(38,38,38);
+    outline: none;
+    flex-grow: 1;
+    border: none;
+    margin-top: 5px;
+}
+.send_message_to > .set_users_area > input::placeholder {
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(142,142,142,0.6);
+    font-weight: 400;
+}
+
+.send_message_to > .set_users_area > div {
+    display: none;
+}
+
+.recommended_users {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    row-gap: 22px;
+}
+/* .recommended_users::-webkit-scrollbar { 
+    
+} */
+.recommended_users > p {
+    color: rgb(38,38,38);
+    padding: 0px 20px;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.users {
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+}
+.user {
+    width: 100%;
+    padding: 0px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.user_detail {
+    display: flex;
+    column-gap: 10px;
+}
+
+.user_detail > div {
+    width: 45px;
+    height: 45px;
+    background-color: yellow;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user_detail > div  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user_detail > span{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user_detail > span > p{
+    color: rgb(38,38,38);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.user_detail > span > span{
+    color: rgb(142,142,142);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+/* css for header inside messages_section  */
 .header {
     width: 100%;
     height: 60px;
@@ -91,4 +254,181 @@ body {
 .profile > img {
     width: 100%;
     height: 100%;
+}
+
+/* css for chats inside messages_section  */
+.chats {
+    width: 60%;
+    height: 660px;
+    max-width: 935px;
+    display: flex;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(219,219,219,1);
+}
+
+.chats_container {
+    width: 37.5%;
+    height: 100%;
+    overflow: hidden;
+    border-right: 1px solid rgba(219,219,219,1);
+}
+
+.message_container {
+    width: 62.5%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.username_logged_in {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid rgba(219,219,219,1);
+
+}
+.username_logged_in > div {
+    display: flex;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    column-gap: 5px;
+    cursor: pointer;
+}
+
+.username_logged_in > i {
+    position: absolute;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.chat_users {
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    overflow-y: scroll;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    margin: 12px 0px;
+}
+
+.title > p {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(38,38,38);
+}
+
+.title > span {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(0,149,246);
+    cursor: pointer;
+}
+.users_container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+.user {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    padding: 0px 20px;
+}
+
+.profile_photo {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile_photo > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.message_content > p{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(38,38,38);
+    line-height: 1;
+}
+.message_content > span {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(142,142,142);
+
+}
+
+.message_content > span span:nth-child(1){
+    color: rgb(38,38,38);
+}
+
+.default_message {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+}
+
+.send_icon {
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgb(38,38,38);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.send_icon > i{
+    font-size: 50px;
+    transform: rotateZ(10deg);
+}
+.default_message > .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 7px;
+}
+
+.default_message > .info > span:nth-child(1){
+    font-size: 22px;
+    font-weight: 300;
+    color: rgb(38,38,38);
+}
+
+
+.default_message > .info > span:nth-child(2){
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(142,142,142)
+}
+
+.default_message > button {
+    cursor: pointer;
+    background-color: rgb(0,149,246);
+    border: 1px solid transparent;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 9px;
 }
